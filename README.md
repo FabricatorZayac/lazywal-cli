@@ -16,6 +16,10 @@ Then to install lazywal itself
 ```bash
 make install
 ```
+If you are using arch it's better to instead do a
+```bash
+makepkg -si
+```
 ## Usage
 
 For help
