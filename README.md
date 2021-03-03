@@ -1,10 +1,8 @@
-#lazywal-cli
+# lazywal-cli
 
----
 This is a minimalistic animated wallpaper manager for Linux and probably BSD
-##Setup
+## Setup
 
----
 Dependencies:
 * [mpv](https://github.com/mpv-player/mpv)
 * [xwinwrap](https://github.com/ujjwal96/xwinwrap) ([aur](https://aur.archlinux.org/packages/xwinwrap-git/))
@@ -18,9 +16,8 @@ You should also make ```lazywal-cli``` executable:
 ```bash
 chmod +x lazywal-cli
 ```
-##Usage
+## Usage
 
----
 For help
 ```bash
 lazywal-cli -h
