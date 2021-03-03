@@ -11,7 +11,7 @@ source=("https://github.com/Zayac-The-Engineer/${pkgname}/archive/${pkgver}.tar.
 md5sums=('SKIP')
 
 package() {
-	cd $pkgname
+	cd "$srcdir/$pkgname-$pkgver"
 	make DESTDIR="$pkgdir" install
 	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
