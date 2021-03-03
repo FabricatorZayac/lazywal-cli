@@ -12,9 +12,9 @@ On arch you can install them with
 pacman -S mpv
 yay -S xwinwrap-git
 ```
-You should also make ```lazywal-cli``` executable:
+Then to install lazywal itself
 ```bash
-chmod +x lazywal-cli
+make install
 ```
 ## Usage
 
