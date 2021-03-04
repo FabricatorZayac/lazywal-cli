@@ -36,6 +36,7 @@ lazywal-cli -r
 ```
 ## Tested DEs, WMs
 
+Should work on any floating WM, really
 #### Works:
 * BSPWM
 * Openbox
