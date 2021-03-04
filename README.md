@@ -34,3 +34,12 @@ Restoring last wallpaper
 ```bash
 lazywal-cli -r
 ```
+## Tested DEs, WMs
+
+#### Works:
+* BSPWM
+* Openbox
+* GNOME 3 (mutter)
+#### Doesn't work (for now):
+* DWM
+* i3
