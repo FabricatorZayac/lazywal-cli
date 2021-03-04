@@ -43,3 +43,4 @@ lazywal-cli -r
 #### Doesn't work (for now):
 * DWM
 * i3
+* ratpoison
