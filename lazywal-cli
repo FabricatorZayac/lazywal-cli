@@ -16,14 +16,9 @@ _restore()
 	then
 		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
 	else
-		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &> /dev/null &
 	fi
 }
-
-# pkill -q picom
-# sleep 0.1
-# picom &> /dev/null &
-# pkill -q xwinwrap
 
 if [ $# -lt 1 ]
 then
@@ -59,7 +54,7 @@ for i in $*; do
 		then
 			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
 		else
-			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &> /dev/null &
 		fi
 	fi
 done
