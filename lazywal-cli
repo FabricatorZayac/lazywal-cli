@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-Help()
+_help()
 {
 	echo
 	echo "Usage: lazywal-cli [OPTION] [PATH_TO_VIDEO]"
@@ -8,10 +8,10 @@ Help()
 	echo "		-h		- Display this message"
 	echo "		-r		- Restore last wallpaper"
 }
-Restore()
+_restore()
 {
-	FILE_PATH=$(cat $HOME/.lazywal)
-	xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $FILE_PATH &
+	file_path=$(cat $HOME/.lazywal)
+	xwinwrap -fs -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
 }
 
 if [ $# -lt 1 ]
@@ -24,13 +24,13 @@ fi
 while getopts "hr" option; do
 	case $option in
 		h) # display Help
-			Help
+			_help
 			exit;;
 		r) # restore wal
-			Restore
+			_restore
 			exit;;
 		*) # Illegal option
-			Help
+			_help
 			exit;;
 	esac
 done
@@ -38,8 +38,8 @@ done
 for i in $*; do
 	if [ -e $i ]
 	then
-		FILE_PATH=$(realpath $i)
-		echo $FILE_PATH > $HOME/.lazywal
-		xwinwrap -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $FILE_PATH &
+		file_path=$(realpath $i)
+		echo $file_path > $HOME/.lazywal
+		xwinwrap -fs -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
 	fi
 done
