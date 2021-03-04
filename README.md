@@ -16,9 +16,9 @@ Then to install lazywal itself
 ```bash
 make install
 ```
-If you are using arch it's better to instead do a
+On Arch you can install the latest release from the [AUR](https://aur.archlinux.org/packages/lazywal-cli/)
 ```bash
-makepkg -si
+yay -S lazywal-cli
 ```
 ## Usage
 
