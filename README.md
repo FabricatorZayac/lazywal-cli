@@ -7,16 +7,11 @@ Dependencies:
 * [mpv](https://github.com/mpv-player/mpv)
 * [xwinwrap](https://github.com/ujjwal96/xwinwrap) ([aur](https://aur.archlinux.org/packages/xwinwrap-git/))
 
-On arch you can install them with
-```bash
-pacman -S mpv
-yay -S xwinwrap-git
-```
-Then to install lazywal itself
+Universal install
 ```bash
 make install
 ```
-On Arch you can install the latest release from the [AUR](https://aur.archlinux.org/packages/lazywal-cli/)
+Arch Linux [AUR](https://aur.archlinux.org/packages/lazywal-cli/)
 ```bash
 yay -S lazywal-cli
 ```
