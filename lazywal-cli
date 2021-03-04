@@ -7,12 +7,23 @@ _help()
 	echo "Options:"
 	echo "		-h		- Display this message"
 	echo "		-r		- Restore last wallpaper"
+	echo "		-d		- Debug"
 }
 _restore()
 {
 	file_path=$(cat $HOME/.lazywal)
-	xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+	if [ "$debug" = "true" ]
+	then
+		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
+	else
+		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+	fi
 }
+
+# pkill -q picom
+# sleep 0.1
+# picom &> /dev/null &
+# pkill -q xwinwrap
 
 if [ $# -lt 1 ]
 then
@@ -21,11 +32,15 @@ then
 	exit 1
 fi
 
-while getopts "hr" option; do
+while getopts "hdr" option; do
 	case $option in
 		h) # display Help
 			_help
 			exit;;
+		d) # debug
+			debug="true"
+			echo debug
+			continue;;
 		r) # restore wal
 			_restore
 			exit;;
@@ -40,6 +55,11 @@ for i in $*; do
 	then
 		file_path=$(realpath $i)
 		echo $file_path > $HOME/.lazywal
-		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+		if [ "$debug" = "true" ]
+		then
+			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
+		else
+			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+		fi
 	fi
 done
