@@ -7,3 +7,7 @@ install:
 
 uninstall:
 	@rm -rf $(DESTDIR)$(PREFIX)/bin/lazywal-cli
+
+#for debug purposes
+link:
+	@ln -s $(realpath lazywal-cli) $(DESTDIR)$(PREFIX)/bin/lazywal-cli
