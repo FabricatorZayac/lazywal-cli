@@ -36,12 +36,14 @@ lazywal-cli -r
 ```
 ## Tested DEs, WMs
 
-Should work on any floating WM, really
 #### Works:
-* BSPWM
-* Openbox
 * GNOME 3 (mutter)
-#### Doesn't work (for now):
-* DWM
-* i3
+* Openbox
+* XFCE
 * ratpoison
+* DWM
+#### Works, but has weird quirks:
+* BSPWM
+* i3
+#### Doesn't work (for now):
+TODO: test more
