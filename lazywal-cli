@@ -9,15 +9,26 @@ _help()
 	echo "		-r		- Restore last wallpaper"
 	echo "		-d		- Debug"
 }
+
+_use_wal()
+{
+    file_path=$1
+    xwinwrap_args="-fs -ni -b -nf -un -o 1.0 -ov -debug"
+    mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+
+    if [ "$debug" = "true" ];
+    then
+    	xwinwrap $xwinwrap_args -- mpv $mpv_args $file_path 
+    else
+    	xwinwrap $xwinwrap_args -- mpv $mpv_args $file_path &> /dev/null &
+    fi
+
+}
+
 _restore()
 {
 	file_path=$(cat $HOME/.lazywal)
-	if [ "$debug" = "true" ]
-	then
-		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
-	else
-		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &> /dev/null &
-	fi
+    _use_wal $file_path
 }
 
 if [ $# -lt 1 ]
@@ -50,11 +61,6 @@ for i in $*; do
 	then
 		file_path=$(realpath $i)
 		echo $file_path > $HOME/.lazywal
-		if [ "$debug" = "true" ]
-		then
-			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path
-		else
-			xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &> /dev/null &
-		fi
+        _restore
 	fi
 done
