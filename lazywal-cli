@@ -11,7 +11,7 @@ _help()
 _restore()
 {
 	file_path=$(cat $HOME/.lazywal)
-	xwinwrap -fs -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+	xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
 }
 
 if [ $# -lt 1 ]
@@ -40,6 +40,6 @@ for i in $*; do
 	then
 		file_path=$(realpath $i)
 		echo $file_path > $HOME/.lazywal
-		xwinwrap -fs -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
+		xwinwrap -fs -ni -b -nf -un -o 1.0 -ov -debug -- mpv -wid WID --loop --no-audio --no-resume-playback --panscan=1.0 $file_path &
 	fi
 done
