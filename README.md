@@ -1,6 +1,6 @@
 # lazywal-cli
 
-This is a minimalistic animated wallpaper manager for Linux and probably BSD
+This is a minimalistic animated wallpaper manager for Linux and probably BSD. Was created for me to see if I could do it and to learn how to create AUR packages.
 ## Setup
 
 Dependencies:
