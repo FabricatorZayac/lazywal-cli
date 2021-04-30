@@ -7,11 +7,13 @@ _help()
 	echo "Options:"
 	echo "		-h		- Display this message"
 	echo "		-r		- Restore last wallpaper"
+	echo "		-k		- Kill wallpaper"
 	echo "		-d		- Debug"
 }
 
 _use_wal()
 {
+	pkill xwinwrap
 	file_path=$1
 	xwinwrap_args="-fs -ni -b -nf -un -o 1.0 -ov -debug"
 	mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
@@ -42,6 +44,9 @@ while getopts "hdr" option; do
 	case $option in
 		h) # display Help
 			_help
+			exit;;
+		k) # kill wallpaper
+			pkill xwinwrap
 			exit;;
 		d) # debug
 			debug="true"
