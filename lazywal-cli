@@ -11,9 +11,15 @@ _help()
 	echo "		-d		- Debug"
 }
 
-_use_wal()
+_kill()
 {
 	pkill xwinwrap
+	sleep 0.05
+}
+
+_use_wal()
+{
+	_kill
 	file_path=$1
 	xwinwrap_args="-fs -ni -b -nf -un -o 1.0 -ov -debug"
 	mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
@@ -24,7 +30,6 @@ _use_wal()
 	else
 		xwinwrap $xwinwrap_args -- mpv $mpv_args $file_path &> /dev/null &
 	fi
-
 }
 
 _restore()
@@ -46,7 +51,7 @@ while getopts "hdrk" option; do
 			_help
 			exit;;
 		k) # kill wallpaper
-			pkill xwinwrap
+			_kill
 			exit;;
 		d) # debug
 			debug="true"
