@@ -9,7 +9,7 @@ _help()
 	echo "		-r		- Restore last wallpaper"
 	echo "		-k		- Kill wallpaper"
 	echo "		-d		- Debug"
-	echo "      -D		- Display with specification (e.g., 1980x1080+0)"
+	echo "		-D		- Display with specification (e.g., 1980x1080+0)"
 }
 
 xwinwrap_func()
