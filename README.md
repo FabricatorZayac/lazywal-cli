@@ -29,6 +29,39 @@ Restoring last wallpaper
 ```bash
 lazywal-cli -r
 ```
+
+### Use option as in the examples:
+
+#### Ex1: External monitor in the right of main monitor
+
+from `xrandr`,
+```bash
+HDMI-1-0 connected 2560x1080+1920+0 (normal left inverted right x axis y axis) 673mm x 284mm
+```
+
+So, we use,
+```bash
+lazywal-cli -D 2560x1080+1920 animation.gif
+```
+
+#### Ex2: Render in the primary display
+
+From `xrandr`,
+```bash
+eDP-1 connected primary 1920x1080+0+0
+```
+
+So, we use,
+```sh
+lazywal-cli -D 1920x1080 animation.gif
+```
+
+#### DEFAULT: To render in both screens the same gif image (not mirrored)
+
+```sh
+lazywal-cli animation.gif
+```
+
 ## Tested DEs, WMs
 
 #### Works:
