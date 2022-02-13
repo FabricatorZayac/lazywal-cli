@@ -18,9 +18,9 @@ xwinwrap_func()
 		# https://superuser.com/questions/196532/how-do-i-find-out-my-screen-resolution-from-a-shell-script
 		display=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
 		xwinwrap_args="-g $display -ni -b -st -un -o 1.0 -ov -debug"
+	else
+		xwinwrap_args="-g $display -ni -b -st -un -o 1.0 -ov -debug"
 	fi
-
-	xwinwrap_args="-g $display -ni -b -st -un -o 1.0 -ov -debug"
 }
 
 _set_display()
@@ -79,8 +79,7 @@ while getopts "hdrkD:" option; do
 			exit;;
 		D) # display on specification (use this for external monitors)
 			_set_display ${OPTARG}
-			_restore
-			exit;;
+			continue;;
 		*) # Illegal option
 			_help
 			exit;;
