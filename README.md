@@ -70,6 +70,7 @@ lazywal-cli animation.gif
 * XFCE
 * ratpoison
 * DWM
+* xmonad
 #### Works, but has weird quirks:
 * BSPWM
 * i3
